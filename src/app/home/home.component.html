@@ -1,1 +1,32 @@
-<app-header/>
+<div class="home">
+    <div class="left">
+        <img src="assets/images/profile.png">
+    </div>
+    <div class="right">
+        <div class="header">
+            <h1>Hi, I'm <span class="highlight">Yuki</span>!</h1>
+        </div>
+        <div class="content">
+            <div class="text">
+                <p>
+                    I’m an aspiring software developer with a passion for helping others, learning new things, and striving for continuous self-improvement. 
+                </p>
+                <p>
+                    Scroll down to learn more about me!
+                </p>
+            </div>
+            <div class="buttons">
+                <app-button 
+                    [text]="'Github'"
+                    [link]="'https://github.com/HappyPetDog'"
+                    [icon]="'/assets/icons/github-icon.svg'"
+                ></app-button>
+                <app-button 
+                    [text]="'LinkedIn'"
+                    [link]="'https://www.linkedin.com/in/minukai/'"
+                    [icon]="'/assets/icons/linkedin.svg'"
+                ></app-button>
+            </div>
+        </div>
+    </div>
+</div>

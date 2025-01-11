@@ -1,7 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 ul {
     align-items: center;
+    background-color: #7b4b94;
     display: flex;
     gap: 24px;
-    justify-content: center;
+    justify-content: center;   
     list-style-type: none;
+    margin-top: 200px;
+    padding: 16px 48px;
+    border-radius: 100px;
+}
+
+li {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 800;
+    font-size: 20px;
+    color: #ffffff;
 }
