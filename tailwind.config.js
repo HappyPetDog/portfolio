@@ -4,7 +4,16 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'dm-sans': ['"DM Sans"', 'sans-serif'],
+        'ibm-plex-mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      colors: {
+        violet: '#7b4b94',
+        
+      }
+    },
   },
   plugins: [],
 }
