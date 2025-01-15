@@ -4,7 +4,6 @@ import { Component, input, signal } from '@angular/core';
   selector: 'app-page-header',
   imports: [],
   templateUrl: './page-header.component.html',
-  styleUrl: './page-header.component.css'
 })
 export class PageHeaderComponent {
    page_name = input.required();

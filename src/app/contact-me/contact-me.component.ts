@@ -5,7 +5,6 @@ import { PageHeaderComponent } from '../components/page-header/page-header.compo
   selector: 'app-contact-me',
   imports: [PageHeaderComponent],
   templateUrl: './contact-me.component.html',
-  styleUrl: './contact-me.component.css'
 })
 export class ContactMeComponent {
 
