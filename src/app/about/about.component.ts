@@ -3,9 +3,8 @@ import { PageHeaderComponent } from '../components/page-header/page-header.compo
 
 @Component({
   selector: 'app-about',
-  imports: [PageHeaderComponent],
+  imports: [],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
 })
 export class AboutComponent {
 
