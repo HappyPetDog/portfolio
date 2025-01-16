@@ -1,11 +1,11 @@
-<div class="bg-turquoise flex justify-center items-center min-h-screen">
+<div class="bg-turquoise flex flex-col gap-24 justify-center items-center px-60 py-32 pt-52 min-h-screen">
     <div class="flex gap-24">
         <div class="flex justify-center items-center">
-            <img src="assets/images/profile.png" class="w-full max-w-sm">
+            <img src="assets/images/about.jpg" class="w-full max-w-sm rounded-2xl">
         </div>
         <div class="flex flex-col justify-center items-center gap-4">
             <div class="w-full">
-                <h1 class="font-dm-sans text-6xl font-bold underline justify-start">Who am I?</h1> 
+                <h1 class="font-dm-sans text-5xl font-bold underline justify-start">Who am I?</h1> 
             </div> 
             <div class="flex flex-col gap-4 font-ibm-plex-mono text-m font-normal w-full max-w-lg">
                 <p>
@@ -22,9 +22,36 @@
                     <span class="font-bold">Software Development</span>, and <span class="font-bold">Web Development</span>.
                 </p>
             </div>
+        </div>
     </div>
-    <div class="flex">
+    <div class="flex flex-col gap-8">
+        <div class="flex justify-center items-center w-full">
+            <h1 class="font-dm-sans text-5xl font-bold underline">Here's what I use</h1> 
+        </div>
+        <div class="flex flex-col justify-center items-center gap-4">
+            <div class="flex flex-row justify-center items-center gap-2">
+                <div *ngFor="let language of languages">
+                    <app-tech-card 
+                        [name]=language.name 
+                        [logo]=language.logo
+                    ></app-tech-card>
+                </div>
+            </div>
+            <p class="font-dm-sans text-xl font-medium">Languages</p>
+        </div>
+        <div class="flex flex-col justify-center items-center gap-4">
+            <div class="flex flex-row justify-center items-center gap-2">
+                <div *ngFor="let technology of technologies">
+                    <app-tech-card 
+                        [name]=technology.name 
+                        [logo]=technology.logo
+                    ></app-tech-card>
+                </div>
+            </div>
+            <p class="font-dm-sans text-xl font-medium">Tech Stack</p>
+        </div>
+    </div>
 
-    </div>
+
 
 </div>
