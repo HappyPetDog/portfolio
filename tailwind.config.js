@@ -11,7 +11,8 @@ module.exports = {
       },
       colors: {
         violet: '#7b4b94',
-        
+        white: `#ffffff`,
+
       }
     },
   },
