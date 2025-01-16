@@ -9,7 +9,6 @@ import { ButtonComponent } from '../components/button/button.component';
   selector: 'app-home',
   imports: [ButtonComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
 })
 export class HomeComponent {
 

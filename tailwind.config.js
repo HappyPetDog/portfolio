@@ -10,8 +10,10 @@ module.exports = {
         'ibm-plex-mono': ['"IBM Plex Mono"', 'monospace'],
       },
       colors: {
-        violet: '#7b4b94',
-        white: `#ffffff`,
+        'violet': '#7b4b94',
+        'white': '#ffffff',
+        'light-green': '#d6f7a3',
+        'blue': '#7d82b8'
 
       }
     },

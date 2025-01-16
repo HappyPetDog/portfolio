@@ -5,7 +5,6 @@ import { SvgIconComponent } from '../svg-icon/svg-icon.component';
   selector: 'app-button',
   imports: [],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
 })
 export class ButtonComponent {
   text = input<string>("Button");
