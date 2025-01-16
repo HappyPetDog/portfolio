@@ -7,10 +7,10 @@ import { SvgIconComponent } from '../svg-icon/svg-icon.component';
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {
-  text = input<string>("Button");
+  text = input<string>('Button');
   link = input<string>('/');
-  textColor = input<string>("#FFFFFF");
-  buttonColor = input<string>("#7D82B8");
+  textColor = input<string>('#ffffff');
+  buttonColor = input<string>('#7d82b8');
   icon = input<string>('/');
 
 }

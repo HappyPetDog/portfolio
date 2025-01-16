@@ -1,1 +1,20 @@
-<app-page-header [page_name]="'Projects'"></app-page-header>
+<div class="bg-blue flex flex-col gap-16 justify-center items-center px-60 py-32 pt-52 min-h-screen">
+    <div class="flex justify-center items-center w-full">
+        <h1 class="font-dm-sans text-5xl text-white font-bold">My Projects</h1> 
+    </div>
+    <div class="flex flex-col justify-center items-center gap-4">
+        <div class="flex flex-row justify-center items-center gap-8">
+            <div *ngFor="let project of projects">
+                <app-project-card 
+                    [title]=project.title
+                    [description]=project.description
+                    [technologies]=project.technologies
+                    [link_to_repo]=project.link_to_repo
+                    [link_to_live]=project.link_to_live 
+                    [thumbnail]=project.thumbnail
+                ></app-project-card>
+            </div>
+        </div>
+    </div>
+
+</div>

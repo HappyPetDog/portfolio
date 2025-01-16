@@ -7,9 +7,9 @@ import { input } from '@angular/core';
   templateUrl: './tech-card.component.html',
 })
 export class TechCardComponent {
-  name = input<string>("Default");
-  textColor = input<string>("#ffffff");
-  bgColor = input<string>("#7b4b94");
-  logo = input<string>("/");
+  name = input<string>('Tech 1');
+  textColor = input<string>('#ffffff');
+  bgColor = input<string>('#7b4b94');
+  logo = input<string>('/');
 
 }
