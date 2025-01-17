@@ -16,7 +16,7 @@ export class ProjectsComponent {
       technologies: ['Svelte', 'TailwindCSS', 'Firebase'],
       link_to_repo: 'https://github.com/violessi/CourseMinder',
       link_to_live: 'https://courseminder.vercel.app/',
-      thumbnail: '/assets/images/about.jpg'
+      thumbnail: '/assets/images/courseminder.png'
     }, 
     {
       title: 'TeddyCare',
@@ -24,14 +24,14 @@ export class ProjectsComponent {
       technologies: ['React', 'Arduino', 'Firebase'],
       link_to_repo: 'https://github.com/ry4nd/bearwithme',
       link_to_live: 'https://bearwithme.vercel.app/',
-      thumbnail: '/assets/images/about.jpg'
+      thumbnail: '/assets/images/teddycare.png'
     }, 
     {
       title: 'BantAI',
       description: 'An AI model that detects car crashes from CCTV footage, and sends alerts to ensure quick medical response and efficient traffic management.',
       technologies: ['YOLO', 'Python'],
       link_to_repo: 'https://github.com/HappyPetDog/bantai',
-      thumbnail: '/assets/images/about.jpg'
+      thumbnail: '/assets/images/bantai.png'
     }
   ]
 }
