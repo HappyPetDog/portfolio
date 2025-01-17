@@ -1,1 +1,29 @@
-<app-page-header [page_name]="'Contact Me'"></app-page-header>
+<div class="bg-black flex justify-center items-center min-h-screen">
+    <div class="flex flex-col gap-12 w-1/2">
+        <h1 class="font-dm-sans text-7xl text-light-green">Got a project or idea?</h1>
+        <p class="font-ibm-plex-mono text-lg text-turquoise">Send me a message, and let’s bring it to life together!</p>
+    </div>
+    <div class="flex justify-center items-center">
+        <form [formGroup]="applyForm" class="flex flex-col gap-2">
+            <div class="flex gap-2">
+                <div class="flex flex-col">
+                    <label for="first-name" class="font-ibm-plex-mono text-turquoise">First Name</label>
+                    <input id="first-name" type="text" formControlName="firstName" class="font-ibm-plex-mono text-sm rounded-lg focus:outline-none p-1 ">
+                </div>
+                <div class="flex flex-col">
+                    <label for="last-name" class="font-ibm-plex-mono text-turquoise">Last Name</label>
+                    <input id="last-name" type="text" formControlName="lastName" class="font-ibm-plex-mono text-sm rounded-lg focus:outline-none p-1">
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <label for="email" class="font-ibm-plex-mono text-turquoise">Email</label>
+                <input id="email" type="email" formControlName="email" class="font-ibm-plex-mono text-sm rounded-lg focus:outline-none p-1" >
+            </div>
+            <div class="flex flex-col">
+                <label for="message" class="font-ibm-plex-mono text-turquoise">Message</label>
+                <textarea id="message" type="text" formControlName="email" class="font-ibm-plex-mono text-sm rounded-lg focus:outline-none resize-none p-1 h-36"></textarea>
+            </div>
+            <button type="submit" class="font-dm-sans font-bold text-sm text-white bg-violet rounded-full w-16 h-8">Send</button>
+        </form>
+    </div>
+</div>
