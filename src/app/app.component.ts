@@ -8,7 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, HomeComponent, AboutComponent, ProjectsComponent, ContactMeComponent],
+  imports: [HeaderComponent, HomeComponent, AboutComponent, ProjectsComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
