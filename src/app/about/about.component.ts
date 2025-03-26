@@ -10,22 +10,31 @@ import { NgFor } from '@angular/common';
 })
 export class AboutComponent {
   languages = [
-    { name: 'C', logo: 'assets/icons/c.png' },
-    { name: 'HTML', logo: 'assets/icons/html.png' },
-    { name: 'Javascript', logo: 'assets/icons/javascript.png' },
     { name: 'Python', logo: 'assets/icons/python.png' },
     { name: 'TypeScript', logo: 'assets/icons/typescript.png' },
+    { name: 'Javascript', logo: 'assets/icons/javascript.png' },
+    { name: 'C', logo: 'assets/icons/c.png' },
   ]
 
   technologies = [
+    // Frameworks
     { name: 'Angular', logo: 'assets/icons/angular.png' }, 
-    { name: 'CSS', logo: 'assets/icons/css.png' },
-    { name: 'Firebase', logo: 'assets/icons/firebase.png' },
-    { name: 'Git', logo: 'assets/icons/git.png' },
-    { name: 'MySQL', logo: 'assets/icons/mysql.png' },
-    { name: 'RxJS', logo: 'assets/icons/rxjs.png' },
+    { name: 'React', logo: 'assets/icons/react.svg' },
     { name: 'Svelte', logo: 'assets/icons/svelte.png' },
+
+    // Frontend
+    { name: 'RxJS', logo: 'assets/icons/rxjs.png' },
     { name: 'TailwindCSS', logo: 'assets/icons/tailwind-css.png' },
+
+    // Backend
+    { name: 'Firebase', logo: 'assets/icons/firebase.png' },
+    { name: 'MySQL', logo: 'assets/icons/mysql.png' },
+    { name: 'Git', logo: 'assets/icons/git.png' },
+
+    // Basics
+    { name: 'HTML', logo: 'assets/icons/html.png' },
+    { name: 'CSS', logo: 'assets/icons/css.png' },
+
   ]
 
 }
