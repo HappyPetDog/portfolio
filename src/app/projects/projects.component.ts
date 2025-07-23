@@ -11,6 +11,13 @@ import { NgFor } from '@angular/common';
 export class ProjectsComponent {
   projects = [
     {
+      title: 'Pose Estimation-based Shoplifting Detection',
+      description: 'A real-time system that detects potential shoplifting incidents using pose estimation techniques.',
+      technologies: ['YOLO', 'Python', 'Computer Vision'],
+      link_to_repo: 'https://github.com/AlJf-the-Coder/cctv-shoplifting-detection.git',
+      thumbnail: '/assets/images/shoplifting-detection.jpg'
+    },
+    {
       title: 'CourseMinder',
       description: 'A friendly web app designed for UP students to easily track their course progress and grades through a simple, intuitive interface.',
       technologies: ['Svelte', 'TailwindCSS', 'Firebase'],
