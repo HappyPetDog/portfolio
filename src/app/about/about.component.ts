@@ -12,7 +12,7 @@ export class AboutComponent {
   languages = [
     { name: 'Python', logo: 'assets/icons/python.png' },
     { name: 'TypeScript', logo: 'assets/icons/typescript.png' },
-    { name: 'Javascript', logo: 'assets/icons/javascript.png' },
+    { name: 'JavaScript', logo: 'assets/icons/javascript.png' },
     { name: 'C', logo: 'assets/icons/c.png' },
   ]
 
