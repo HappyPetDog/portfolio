@@ -1,6 +1,8 @@
+export type SkillType = 'language' | 'technology';
+
 export interface Skill {
     skillId: number,
     skillName: string,
-    skillType: 'language' | 'technology',
+    skillType: SkillType,
     logo: string
 }
