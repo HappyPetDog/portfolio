@@ -11,8 +11,8 @@ export class ProjectCardComponent {
   title = input<string>('Project Title');
   description = input<string>('Project Description');
   technologies = input<string[]>(['Tech 1', 'Tech 2', 'Tech 3']);
-  link_to_repo = input<string>();
-  link_to_live = input<string>()
+  link_to_repo = input<string | null>();
+  link_to_live = input<string | null>()
   thumbnail = input<string>('/');
   
 }
