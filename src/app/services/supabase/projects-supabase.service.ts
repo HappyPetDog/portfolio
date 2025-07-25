@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { createClient } from '@supabase/supabase-js';
 import { environment } from '../../../environments/environment';
 import { Database } from '../../types/database.types';
-import { from, map, Observable } from 'rxjs';
+import { from, map, Observable, take } from 'rxjs';
 import { Project } from '../../types/project-interface';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class ProjectsSupabaseService {
   }
   
 
-  getProjects(): Observable<Project[]> {
+  getProjects(): Observable<any> {
     console.log('⚡ getProjects() called');
   
     const promise = this.supabase.from('projects').select('*');

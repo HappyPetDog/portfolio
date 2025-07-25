@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { PageHeaderComponent } from '../components/page-header/page-header.component';
 import { ProjectCardComponent } from '../components/project-card/project-card.component';
 import { CommonModule, NgFor } from '@angular/common';
 import { ProjectsSupabaseService } from '../services/supabase/projects-supabase.service';
 import { InvokeFunctionExpr } from '@angular/compiler';
 import { ProjectsService } from '../services/projects.service';
-import { Observable, of } from 'rxjs';
+import { Observable, of, take } from 'rxjs';
 import { Project } from '../types/project-interface';
 
 @Component({
@@ -13,10 +13,10 @@ import { Project } from '../types/project-interface';
   imports: [ProjectCardComponent, NgFor, CommonModule],
   templateUrl: './projects.component.html',
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   private projectsSupabaseService = inject(ProjectsSupabaseService);
   private projectsService = inject(ProjectsService);
-  projects$! : Observable<Project[]>;
+  projects$: Observable<Project[]> = of([]);
 
   projectsData = [
     {
@@ -57,8 +57,12 @@ export class ProjectsComponent {
     }
   ]
 
-  ngOnInit() {
-    this.projects$ = this.projectsSupabaseService.getProjects();
+  ngOnInit(): void {
+    this.projectsSupabaseService.getProjects().subscribe((projects) => {
+      this.projectsService.projectSignal.set(projects);
+      this.projects$ = of(projects);
+      console.log('Projects fetched successfully:', projects);
+    });
     // this.projects$ = of(this.projectsData); // Using the hardcoded projects for now
   }
   
