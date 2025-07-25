@@ -9,20 +9,31 @@ import { Project } from '../../types/project-interface';
   providedIn: 'root'
 })
 export class ProjectsSupabaseService {
-  supabase = createClient<Database>(
+  private supabase = createClient<Database>(
     environment.supabaseUrl,
     environment.supabaseKey
   );
 
+  constructor() {
+    console.log('🔍 Supabase URL:', environment.supabaseUrl);
+    console.log('🔍 Supabase Key:', environment.supabaseKey);
+  }
+  
+
   getProjects(): Observable<Project[]> {
+    console.log('⚡ getProjects() called');
+  
     const promise = this.supabase.from('projects').select('*');
+  
+    console.log('⏳ after supabase.from');
+  
     return from(promise).pipe(
-      map(response => {
+      map((response) => {
+        console.log('📥 Supabase response received:', response);
         if (response.error) {
-          console.log('Error fetching projects:', response.error);
+          console.error('❌ Supabase error:', response.error);
           return [];
         }
-        console.log('Projects fetched successfully:', response.data);
         return response.data.map(item => ({
           projectId: item.project_id,
           projectTitle: item.project_title,
@@ -35,4 +46,5 @@ export class ProjectsSupabaseService {
       })
     );
   }
+  
 }

@@ -14,8 +14,8 @@ import { Project } from '../types/project-interface';
   templateUrl: './projects.component.html',
 })
 export class ProjectsComponent {
-  projectsSupabaseService = inject(ProjectsSupabaseService);
-  projectsService = inject(ProjectsService);
+  private projectsSupabaseService = inject(ProjectsSupabaseService);
+  private projectsService = inject(ProjectsService);
   projects$! : Observable<Project[]>;
 
   projectsData = [
@@ -57,17 +57,9 @@ export class ProjectsComponent {
     }
   ]
 
-  // ngOnInit() {
-  //   this.projects$ = this.projectsSupabaseService.getProjects();
-  //   // this.projects$ = of(this.projectsData); // Using the hardcoded projects for now
-  // }
-
-
   ngOnInit() {
-    this.projectsSupabaseService.getProjects().subscribe({
-      next: (res) => console.log('✅ Got projects:', res),
-      error: (err) => console.error('❌ Error:', err),
-    });
+    this.projects$ = this.projectsSupabaseService.getProjects();
+    // this.projects$ = of(this.projectsData); // Using the hardcoded projects for now
   }
   
 }
