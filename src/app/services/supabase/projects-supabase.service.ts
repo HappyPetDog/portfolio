@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { environment } from '../../../environments/environment';
 import { Database } from '../../types/database.types';
 import { from, map, Observable } from 'rxjs';
+import { Project } from '../../types/project-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ProjectsSupabaseService {
     environment.supabaseKey
   );
 
-  getProjects(): Observable<any> {
+  getProjects(): Observable<Project[]> {
     const promise = this.supabase.from('projects').select('*');
     return from(promise).pipe(
       map(response => {
@@ -21,7 +22,15 @@ export class ProjectsSupabaseService {
           console.error('Error fetching projects:', response.error);
           return [];
         }
-        return response.data;
+        return response.data.map(item => ({
+          projectId: item.project_id,
+          projectTitle: item.project_title,
+          projectDescription: item.project_description,
+          linkToLive: item.link_to_live,
+          linkToRepo: item.link_to_repo,
+          technologies: item.technologies,
+          thumbnail: item.thumbnail
+        }));
       })
     );
   }

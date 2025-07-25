@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { Database } from '../../types/database.types';
 import { environment } from '../../../environments/environment';
 import { from, map, Observable } from 'rxjs';
+import { Skill } from '../../types/skill-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class SkillsSupabaseService {
     environment.supabaseKey
   );
 
-  getSkills(): Observable<any> {
+  getSkills(): Observable<Skill[]> {
     const promise = this.supabase.from('skills').select('*');
     return from(promise).pipe(
       map(response => {
@@ -22,7 +23,12 @@ export class SkillsSupabaseService {
           console.error('Error fetching skills:', response.error);
           return [];
         }
-        return response.data;
+        return response.data.map(item => ({
+          skillId: item.id,
+          skillName: item.skill_name,
+          skillType: item.skill_type,
+          logo: item.logo
+        }));
       })
     );
   }
