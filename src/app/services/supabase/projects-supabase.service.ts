@@ -19,9 +19,10 @@ export class ProjectsSupabaseService {
     return from(promise).pipe(
       map(response => {
         if (response.error) {
-          console.error('Error fetching projects:', response.error);
+          console.log('Error fetching projects:', response.error);
           return [];
         }
+        console.log('Projects fetched successfully:', response.data);
         return response.data.map(item => ({
           projectId: item.project_id,
           projectTitle: item.project_title,

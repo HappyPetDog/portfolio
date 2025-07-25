@@ -1,44 +1,73 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PageHeaderComponent } from '../components/page-header/page-header.component';
 import { ProjectCardComponent } from '../components/project-card/project-card.component';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
+import { ProjectsSupabaseService } from '../services/supabase/projects-supabase.service';
+import { InvokeFunctionExpr } from '@angular/compiler';
+import { ProjectsService } from '../services/projects.service';
+import { Observable, of } from 'rxjs';
+import { Project } from '../types/project-interface';
 
 @Component({
   selector: 'app-projects',
-  imports: [ProjectCardComponent, NgFor],
+  imports: [ProjectCardComponent, NgFor, CommonModule],
   templateUrl: './projects.component.html',
 })
 export class ProjectsComponent {
-  projects = [
+  projectsSupabaseService = inject(ProjectsSupabaseService);
+  projectsService = inject(ProjectsService);
+  projects$! : Observable<Project[]>;
+
+  projectsData = [
     {
-      title: 'Pose Estimation-based Shoplifting Detection',
-      description: 'A real-time system that detects potential shoplifting incidents using pose estimation techniques.',
+      projectId: 1,
+      projectTitle: 'Pose Estimation-based Shoplifting Detection',
+      projectDescription: 'A real-time system that detects potential shoplifting incidents using pose estimation techniques.',
       technologies: ['YOLO', 'Python', 'Computer Vision'],
-      link_to_repo: 'https://github.com/AlJf-the-Coder/cctv-shoplifting-detection.git',
+      linkToRepo: 'https://github.com/AlJf-the-Coder/cctv-shoplifting-detection.git',
+      linkToLive: null,
       thumbnail: '/assets/images/shoplifting-detection.jpg'
     },
     {
-      title: 'CourseMinder',
-      description: 'A friendly web app designed for UP students to easily track their course progress and grades through a simple, intuitive interface.',
+      projectId: 2,
+      projectTitle: 'CourseMinder',
+      projectDescription: 'A friendly web app designed for UP students to easily track their course progress and grades through a simple, intuitive interface.',
       technologies: ['Svelte', 'TailwindCSS', 'Firebase'],
-      link_to_repo: 'https://github.com/violessi/CourseMinder',
-      link_to_live: 'https://courseminder.vercel.app/',
+      linkToRepo: 'https://github.com/violessi/CourseMinder',
+      linkToLive: 'https://courseminder.vercel.app/',
       thumbnail: '/assets/images/courseminder.png'
     }, 
     {
-      title: 'TeddyCare',
-      description: 'An IoT companion for parents, designed to detect crying and loud noises, play lullabies, and simulate a heartbeat to provide comfort to babies.',
+      projectId: 3,
+      projectTitle: 'TeddyCare',
+      projectDescription: 'An IoT companion for parents, designed to detect crying and loud noises, play lullabies, and simulate a heartbeat to provide comfort to babies.',
       technologies: ['Arduino', 'Firebase', 'React'],
-      link_to_repo: 'https://github.com/ry4nd/bearwithme',
-      link_to_live: 'https://bearwithme.vercel.app/',
+      linkToRepo: 'https://github.com/ry4nd/bearwithme',
+      linkToLive: 'https://bearwithme.vercel.app/',
       thumbnail: '/assets/images/teddycare.png'
     }, 
     {
-      title: 'BantAI',
-      description: 'An AI model that detects car crashes from CCTV footage and sends alerts to expedite medical response and optimize traffic management.',
+      projectId: 4,
+      projectTitle: 'BantAI',
+      projectDescription: 'An AI model that detects car crashes from CCTV footage and sends alerts to expedite medical response and optimize traffic management.',
       technologies: ['Computer Vision', 'YOLO', 'Python'],
-      link_to_repo: 'https://github.com/HappyPetDog/bantai',
+      linkToLive: null,
+      linkToRepo: 'https://github.com/HappyPetDog/bantai',
       thumbnail: '/assets/images/bantai.png'
     }
   ]
+
+  // ngOnInit() {
+  //   this.projects$ = this.projectsSupabaseService.getProjects();
+  //   // this.projects$ = of(this.projectsData); // Using the hardcoded projects for now
+  // }
+
+
+  ngOnInit() {
+    this.projectsSupabaseService.getProjects().subscribe({
+      next: (res) => console.log('✅ Got projects:', res),
+      error: (err) => console.error('❌ Error:', err),
+    });
+  }
+  
 }
