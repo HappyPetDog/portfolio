@@ -4,13 +4,13 @@
     </div>
     <div class="flex flex-col justify-center items-center gap-4">
         <div class="flex flex-row justify-center items-center gap-8">
-            <div *ngFor="let project of projects">
+            <div *ngFor="let project of projectsData">
                 <app-project-card 
-                    [title]=project.title
-                    [description]=project.description
+                    [title]=project.projectTitle
+                    [description]=project.projectDescription
                     [technologies]=project.technologies
-                    [link_to_repo]=project.link_to_repo
-                    [link_to_live]=project.link_to_live 
+                    [link_to_repo]=project.linkToRepo
+                    [link_to_live]=project.linkToLive 
                     [thumbnail]=project.thumbnail
                 ></app-project-card>
             </div>

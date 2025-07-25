@@ -4,6 +4,6 @@ export interface Project {
     projectDescription: string;
     technologies: string[];
     thumbnail: string;
-    linkToLive?: string | null;
-    linkToRepo?: string | null;
+    linkToLive: string | null;
+    linkToRepo: string | null;
 }
