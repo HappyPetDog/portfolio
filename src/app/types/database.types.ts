@@ -16,52 +16,52 @@ export type Database = {
     Tables: {
       projects: {
         Row: {
-          description: string
           link_to_live: string | null
           link_to_repo: string | null
+          project_description: string
           project_id: number
+          project_title: string
           technologies: string[]
           thumbnail: string
-          title: string
         }
         Insert: {
-          description?: string
           link_to_live?: string | null
           link_to_repo?: string | null
+          project_description?: string
           project_id?: number
+          project_title?: string
           technologies: string[]
           thumbnail?: string
-          title?: string
         }
         Update: {
-          description?: string
           link_to_live?: string | null
           link_to_repo?: string | null
+          project_description?: string
           project_id?: number
+          project_title?: string
           technologies?: string[]
           thumbnail?: string
-          title?: string
         }
         Relationships: []
       }
       skills: {
         Row: {
           id: number
-          logo: string | null
+          logo: string
           skill_name: string
-          skill_type: Database["public"]["Enums"]["skillType"] | null
+          skill_type: Database["public"]["Enums"]["skillType"]
         }
         Insert: {
           id?: number
-          logo?: string | null
+          logo?: string
           skill_name?: string
-          skill_type?: Database["public"]["Enums"]["skillType"] | null
+          skill_type: Database["public"]["Enums"]["skillType"]
         }
         Update: {
           id?: number
-          logo?: string | null
+          logo?: string
           skill_name?: string
-          skill_type?: Database["public"]["Enums"]["skillType"] | null
+          skill_type?: Database["public"]["Enums"]["skillType"]
         }
         Relationships: []
       }
