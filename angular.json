@@ -30,6 +30,11 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
+              },
+              {
+                "glob": "runtime-environment.js",
+                "input": "src/environments",
+                "output": "assets"
               }
             ],
             "styles": [

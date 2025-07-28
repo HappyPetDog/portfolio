@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run inject-env && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:portfolio": "node dist/portfolio/server/server.mjs",
-    "generate:types": "./scripts/generate-types.sh"
+    "generate:types": "./scripts/generate-types.sh",
+    "inject-env": "sed -i 's/__API_KEY__/'\"$NG_APP_API_KEY\"'/g' src/environments/runtime-environment.js"
   },
   "private": true,
   "dependencies": {
