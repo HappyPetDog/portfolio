@@ -18,52 +18,12 @@ export class ProjectsComponent implements OnInit {
   private projectsService = inject(ProjectsService);
   projects$: Observable<Project[]> = of([]);
 
-  projectsData = [
-    {
-      projectId: 1,
-      projectTitle: 'Pose Estimation-based Shoplifting Detection',
-      projectDescription: 'A real-time system that detects potential shoplifting incidents using pose estimation techniques.',
-      technologies: ['YOLO', 'Python', 'Computer Vision'],
-      linkToRepo: 'https://github.com/AlJf-the-Coder/cctv-shoplifting-detection.git',
-      linkToLive: null,
-      thumbnail: '/assets/images/shoplifting-detection.jpg'
-    },
-    {
-      projectId: 2,
-      projectTitle: 'CourseMinder',
-      projectDescription: 'A friendly web app designed for UP students to easily track their course progress and grades through a simple, intuitive interface.',
-      technologies: ['Svelte', 'TailwindCSS', 'Firebase'],
-      linkToRepo: 'https://github.com/violessi/CourseMinder',
-      linkToLive: 'https://courseminder.vercel.app/',
-      thumbnail: '/assets/images/courseminder.png'
-    }, 
-    {
-      projectId: 3,
-      projectTitle: 'TeddyCare',
-      projectDescription: 'An IoT companion for parents, designed to detect crying and loud noises, play lullabies, and simulate a heartbeat to provide comfort to babies.',
-      technologies: ['Arduino', 'Firebase', 'React'],
-      linkToRepo: 'https://github.com/ry4nd/bearwithme',
-      linkToLive: 'https://bearwithme.vercel.app/',
-      thumbnail: '/assets/images/teddycare.png'
-    }, 
-    {
-      projectId: 4,
-      projectTitle: 'BantAI',
-      projectDescription: 'An AI model that detects car crashes from CCTV footage and sends alerts to expedite medical response and optimize traffic management.',
-      technologies: ['Computer Vision', 'YOLO', 'Python'],
-      linkToLive: null,
-      linkToRepo: 'https://github.com/HappyPetDog/bantai',
-      thumbnail: '/assets/images/bantai.png'
-    }
-  ]
-
   ngOnInit(): void {
     this.projectsSupabaseService.getProjects().subscribe((projects) => {
       this.projectsService.projectSignal.set(projects);
       this.projects$ = of(projects);
       console.log('Projects fetched successfully:', projects);
     });
-    // this.projects$ = of(this.projectsData); // Using the hardcoded projects for now
   }
   
 }

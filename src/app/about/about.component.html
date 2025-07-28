@@ -30,9 +30,9 @@
         </div>
         <div class="flex flex-col justify-center items-center gap-4">
             <div class="flex flex-row justify-center items-center gap-2">
-                <div *ngFor="let language of languages">
+                <div *ngFor="let language of languages$ | async">
                     <app-tech-card 
-                        [name]=language.name 
+                        [name]=language.skillName 
                         [logo]=language.logo
                     ></app-tech-card>
                 </div>
@@ -41,9 +41,9 @@
         </div>
         <div class="flex flex-col justify-center items-center gap-4">
             <div class="flex flex-row justify-center items-center gap-2">
-                <div *ngFor="let technology of technologies">
+                <div *ngFor="let technology of technologies$ | async">
                     <app-tech-card 
-                        [name]=technology.name 
+                        [name]=technology.skillName 
                         [logo]=technology.logo
                     ></app-tech-card>
                 </div>
